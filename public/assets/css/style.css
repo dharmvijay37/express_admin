@@ -1,0 +1,17 @@
+.login-page,
+.register-page {
+  overflow: hidden;
+}
+.float-right{
+  float:right;
+}
+.navbar-nav>.user-menu .user-image {
+  float: none;
+}
+.error {
+  color: red;
+}
+.svg{
+  height: 14px; 
+  width: 14px;
+}

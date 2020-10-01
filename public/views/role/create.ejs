@@ -1,0 +1,66 @@
+<% include ./../layout/header.ejs %>
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <% include ./../layout/partials/page-header-section.ejs %>
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Add Role</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <form action="/admin/role" id="createRoleForm" method="POST">
+            <div class="row">
+              <!-- /.col -->
+
+              <% include ./../layout/partials/alert-section.ejs %>
+
+              <div class="col-xs-5">
+                <div class="form-group has-feedback">
+                  <input type="text" name="name" id="roleName" class="form-control" placeholder="Role name" >
+                </div>
+              </div>
+              <div class="col-xs-5">
+                <div class="form-group has-feedback">
+                  <div class="form-group">
+                    <select class="form-control validate[required]" name="status">
+                      <option value="">Choose status</option>
+                      <option value="1">On</option>
+                      <option value="0">Off</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-2">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<% include ./../layout/footer.ejs %>
+<script type="text/javascript" src="/js/role.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<% include ../layout/header.ejs %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <% include ../layout/partials/page-header-section.ejs %>
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">User list</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove">
+                        <i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <% include ../layout/partials/alert-section.ejs %>
+            <div class="box-body">
+                <table id="adminList" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<% include ../layout/footer.ejs %>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/plugins/datatables/dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#adminList").dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/admin/user/data",
+            'columns': [
+                {data: 'first_name'},
+                {data: 'last_name'},
+                {data: 'email'},
+                {
+                    data: "id",
+                    searchable: false,
+                    sortable: false,
+                    render: function (id, type, full, meta) {
+                        return '';
+                        // return '<a href="/admin/profile/' + id + '"><i class="fa fa-pencil"></i></a> &nbsp; <a href="/admin/' + id + '/delete"><i class="fa fa-trash"></i></a> &nbsp; <a href="/admin/user/' + id +'/role/assign"><img src="../../images/key.svg" class="svg"  data-toggle="tooltip" title="Assign Role" alt="Assign Role"></a>';
+                    }
+                },
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

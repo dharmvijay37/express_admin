@@ -1,0 +1,60 @@
+<% include ./../layout/header.ejs %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <% include ./../layout/partials/page-header-section.ejs %>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Assign permission to role</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove">
+                        <i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <% include  ./../layout/partials/alert-section.ejs %>
+                <form action="/admin/role/permission/assign" id="addPermissionForm" method="POST">
+                    <div class="row">
+                        <input type="hidden" id="roleAssignPermission">
+                        <input type="hidden" id="roleId" name="roleId" value="<%= roleId %>">
+                        <div class="col-xs-12">
+                            <% for(var i=0; i < permissionData.length; i++) { %>
+                                <div class="col-xs-2">
+                                        <label class="form-check-label" >
+                                        <input type="checkbox" class="form-check-input" <% if(rolePermissionList.includes(permissionData[i].id)) { %> checked="checked" <% } %> name="value" id="value" value="<%= permissionData[i].id %>">  <%= permissionData[i].name %>
+                                        </label>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+
+            <!-- <a href="#" class="btn btn-primary">Add Role</a> -->
+
+                    </div>
+            <!-- /.box-body -->
+                    <div class="col-md-2 float-right"><button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button></div>
+                </form>
+            <div class="box-footer text-center">
+        </div>
+            <!-- /.box-footer-->
+    </div>
+        <!-- /.box -->
+
+  </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<% include ./../layout/footer.ejs %>
+<script type="text/javascript" src="/js/role-permission.js"></script>
+</body>
+</html>

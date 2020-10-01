@@ -1,0 +1,80 @@
+<% include ./../layout/header.ejs %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <% include ./../layout/partials/page-header-section.ejs %>
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Country list</h3>
+                <a class="btn btn-success" href="/admin/country">Add</a>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove">
+                        <i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <table id="countryList" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Country Name</th>
+                        <th>Nationality</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Country Name</th>
+                        <th>Nationality</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<% include ./../layout/footer.ejs %>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/plugins/datatables/dataTables.bootstrap.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#countryList").dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/admin/country/list",
+            'columns': [
+                {data: 'name'},
+                {data: 'nationality'},
+                {
+                    data: "id",
+                    searchable: false,
+                    sortable: false,
+                    render: function (id, type, full, meta) {
+                        return '<a href="/admin/country/edit/' + id + '"><i class="fa fa-pencil"></i></a> &nbsp; <a href="/admin/country/' + id + '/delete"><i class="fa fa-times"></i></a>';
+                    }
+                },
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>
