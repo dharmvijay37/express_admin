@@ -36,6 +36,10 @@ User.init(
     password: {
       type: DataTypes.STRING
     },
+    role_id: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
     status: {
       type: DataTypes.TINYINT
     },

@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'mentavio.cms',
+      name: 'node_admin',
       script: './build/app.js',
       autorestart: true
     }

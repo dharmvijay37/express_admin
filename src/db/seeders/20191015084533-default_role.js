@@ -1,10 +1,10 @@
 module.exports = {
   up: queryInterface => {
     return queryInterface.bulkInsert(
-      'Roles',
+      "Roles",
       [
         {
-          name: 'Admin',
+          name: "Admin",
           status: 1,
           createdAt: new Date(),
           updatedAt: new Date()
@@ -15,9 +15,9 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.bulkDelete('Roles', [
+    return queryInterface.bulkDelete("Roles", [
       {
-        name: 'Admin'
+        name: "Admin"
       }
     ]);
   }

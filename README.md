@@ -1,1 +1,1 @@
-# node_admin
+Node admin panel using express framework

@@ -1,20 +1,18 @@
 {
-  "name": "mentavio-cms",
+  "name": "node-admin",
   "version": "1.0.0",
-  "description": "mentavio cms",
+  "description": "Node admin",
   "main": "build/app.js",
   "scripts": {
     "clean": "rimraf ./build/*",
     "prettier": "prettier src/**/*.js --write",
     "build": "npm run prettier && tsc",
-    "start": "SET NODE_ENV=production&& node ./build/app.js",
-    "start:dev": "SET NODE_ENV=development&& ts-node-dev --respawn --transpileOnly ./src/app.ts",
-    "start:prod": "SET NODE_ENV=production&& npm run clean && npm run build && pm2 start ./pm2.config.js"
+    "start": "SET NODE_ENV=production&& npm run clean && npm run build && pm2 start ./pm2.config.js",
+    "start:dev": "SET NODE_ENV=development&& ts-node-dev --respawn --transpileOnly ./src/app.ts"
   },
   "keywords": [
-    "mentavio"
+    "node-admin"
   ],
-  "author": "Tatvasoft",
   "license": "ISC",
   "dependencies": {
     "@types/bluebird": "^3.5.28",
@@ -25,16 +23,14 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "ejs": "^2.7.1",
-    "errorhandler": "^1.5.0",
     "express": "^4.16.2",
     "express-session": "^1.16.2",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.20",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
     "morgan": "^1.9.1",
     "mysql2": "^1.7.0",
     "nodemailer": "^6.3.0",
-    "nodemailer-express-handlebars": "^3.1.0",
     "sequelize": "^5.18.4",
     "sequelize-cli": "^5.5.1",
     "sequelize-cli-typescript": "^3.2.0-c",
